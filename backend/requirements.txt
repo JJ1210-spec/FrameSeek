@@ -1,0 +1,22 @@
+# ============================================================
+# FrameSeek - backend (API + ML pipeline)
+# Tested on Python 3.12 / 3.13 (Windows, CPU-only inference)
+# NOTE: ffmpeg + ffprobe are SYSTEM binaries — install separately
+#       (Windows: `winget install Gyan.FFmpeg`).
+# ============================================================
+
+# --- web API ---
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+
+# --- ML pipeline (frame_finder) ---
+faster-whisper>=1.2.1          # Whisper ASR (word timestamps, VAD filter); 1.2.1+ fixes clip_timestamps
+ctranslate2>=4.8.1             # Inference engine behind faster-whisper (int8 CPU)
+opencv-python-headless>=4.8.0  # Video metadata + frame extraction
+torch>=2.1.0                   # Silero VAD (torch.hub)
+yt-dlp>=2024.1.0               # Video download for URL sources
+rapidfuzz>=3.0.0               # Fuzzy dialogue matching
+
+# --- testing ---
+pytest>=8.0.0
+httpx>=0.27.0                  # required by fastapi.testclient

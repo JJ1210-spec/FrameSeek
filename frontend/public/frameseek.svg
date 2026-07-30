@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title desc">
+  <title id="title">FrameSeek</title>
+  <desc id="desc">A glossy 3D tile holding a film frame and a speech waveform, with a focus bracket on the matched moment.</desc>
+  <defs>
+    <linearGradient id="face" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#47a8ff"/>
+      <stop offset="0.55" stop-color="#0a74e0"/>
+      <stop offset="1" stop-color="#0052a8"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#003f84"/>
+      <stop offset="1" stop-color="#002a5c"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#d6e9ff"/>
+    </linearGradient>
+    <radialGradient id="ground" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#000000" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#001a3a" flood-opacity="0.45"/>
+    </filter>
+    <clipPath id="faceClip">
+      <rect x="36" y="24" width="184" height="184" rx="46"/>
+    </clipPath>
+  </defs>
+
+  <!-- ground shadow -->
+  <ellipse cx="128" cy="236" rx="92" ry="12" fill="url(#ground)"/>
+
+  <!-- extrusion (depth) -->
+  <rect x="36" y="42" width="184" height="184" rx="46" fill="url(#side)"/>
+
+  <!-- front face -->
+  <rect x="36" y="24" width="184" height="184" rx="46" fill="url(#face)"/>
+
+  <!-- gloss highlight on the upper half -->
+  <g clip-path="url(#faceClip)">
+    <path d="M36 24 H220 V96 C170 118 90 118 36 100 Z" fill="url(#gloss)"/>
+  </g>
+  <rect x="37.5" y="25.5" width="181" height="181" rx="44.5" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="3"/>
+
+  <!-- film frame -->
+  <g filter="url(#soft)">
+    <rect x="62" y="62" width="132" height="108" rx="16" fill="#ffffff" fill-opacity="0.1" stroke="#ffffff" stroke-width="7"/>
+    <!-- sprocket holes -->
+    <g fill="#ffffff" fill-opacity="0.9">
+      <rect x="80" y="48" width="12" height="8" rx="2.5"/>
+      <rect x="104" y="48" width="12" height="8" rx="2.5"/>
+      <rect x="128" y="48" width="12" height="8" rx="2.5"/>
+      <rect x="152" y="48" width="12" height="8" rx="2.5"/>
+      <rect x="80" y="176" width="12" height="8" rx="2.5"/>
+      <rect x="104" y="176" width="12" height="8" rx="2.5"/>
+      <rect x="128" y="176" width="12" height="8" rx="2.5"/>
+      <rect x="152" y="176" width="12" height="8" rx="2.5"/>
+    </g>
+
+    <!-- speech waveform -->
+    <g fill="url(#bar)">
+      <rect x="68" y="107" width="9" height="18" rx="4.5"/>
+      <rect x="84" y="99" width="9" height="34" rx="4.5"/>
+      <rect x="100" y="91" width="9" height="50" rx="4.5"/>
+      <rect x="147" y="95" width="9" height="42" rx="4.5"/>
+      <rect x="163" y="102" width="9" height="28" rx="4.5"/>
+      <rect x="179" y="108" width="9" height="16" rx="4.5"/>
+    </g>
+    <!-- the matched moment: highlighted bar inside a focus bracket -->
+    <rect x="123.5" y="84" width="9" height="64" rx="4.5" fill="#ffd60a"/>
+    <g fill="none" stroke="#ffd60a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M113 86 V78 H121"/>
+      <path d="M135 78 H143 V86"/>
+      <path d="M143 146 V154 H135"/>
+      <path d="M121 154 H113 V146"/>
+    </g>
+  </g>
+</svg>

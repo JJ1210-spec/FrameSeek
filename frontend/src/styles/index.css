@@ -1,0 +1,5 @@
+/* Entry stylesheet — design system in docs/design-system.md */
+@import './tokens.css';
+@import './base.css';
+@import './layout.css';
+@import './components.css';
